@@ -24,22 +24,45 @@
             align-items: center;
             justify-content: center;
             padding: 2rem;
-        }
-        .section h1, .section p {
+            position: relative;
+            background-color: #000;
             color: #fff;
+            background-blend-mode: overlay;
         }
-        .section h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
         }
-        .section p {
-            font-size: 1.25rem;
+        .section > div {
+            position: relative;
+            z-index: 2;
+        }
+        .bg-cover {
+            background-size: cover;
+            background-position: center;
+        }
+        .fade-in {
+            animation: fadeIn 2s ease;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         .bg-black {
             background-color: #000;
         }
         .text-gold {
             color: #FFD700;
+        }
+        .text-occ {
+            color: #fff09d;
         }
         .btn {
             background-color: #FFD700;
@@ -87,44 +110,45 @@
     </style>
 </head>
 <body>
-    <section id="home" class="section bg-black relative">
-        <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('assets/image/cover.jpg');"></div>
-        <div class="relative text-center">
+    <section id="home" class="section bg-black relative parallax">
+        <img src="assets/image/home7.png" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-50">
+        <div class="relative text-center fade-in">
             <img src="assets/image/photo.png" alt="Meghraj Bagde" class="mx-auto mb-8 rounded-full w-40 h-40 object-cover border-4 border-gold">
             <h1 class="text-gold text-6xl font-bold mb-4">Meghraj Bagde</h1>
             <p class="text-2xl mb-8">Data scientist</p>
-            <p class="text-lg mb-8">I have a passion for technology. Making a product that helps people without them noticing, is what drives me.</p>
-            <a href="#portfolio" class="btn mb-8">Get Started</a>
-            <div class="scroll-down">
-                <a href="#experience">
+            <p class="text-lg mb-8">I have a passion for technology. Creating products that seamlessly improve people's lives without them noticing, is what drives me.</p>
+            <div class="flex justify-center items-center mb-8">
+                <a href="#portfolio" class="btn">Know More</a>
+                <a href="#experience" class="ml-4">
                     <i data-feather="chevron-down" class="text-gold text-4xl"></i>
                 </a>
             </div>
         </div>
     </section>
-    <section id="about" class="section bg-black">
-        <div class="container mx-auto text-center">
+    <section id="about" class="section bg-black fade-in">
+        <img src="assets/image/background1.png" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-100">
+        <div class="container mx-auto text-center relative z-10">
             <h1 class="text-gold">About Me</h1>
             <p class="mb-8">With a strong foundation in machine learning and data science, I have a passion for solving complex problems and delivering impactful solutions. My expertise spans across various domains, including predictive analytics, AI-based systems, and IoT solutions. I am committed to continuous learning and staying updated with the latest advancements in technology.</p>
         </div>
     </section>
-    <section id="experience" class="section bg-black">
+    <section id="Expertise" class="section bg-black fade-in">
         <div class="container mx-auto text-center">
-            <h1 class="text-gold"></h1>
+            <h1 class="text-gold">Expertise</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                 <div class="card">
                     <div class="w-20 py-6 flex justify-center bg-gray-800 rounded-md mb-4">
                         <i data-feather="activity" class="text-gold"></i>
                     </div>
-                    <h4 class="text-lg mb-4">High Experience</h4>
-                    <p>With years of experience in machine learning and data science, I have developed and deployed numerous models that solve real-world problems efficiently.</p>
+                    <h4 class="text-lg mb-4">Hackathon Champion</h4>
+                    <p>Proven track record of transforming innovative ideas into award-winning business prototypes at hackathons, showcasing the ability to rapidly develop and pitch data-driven solutions.</p>
                 </div>
                 <div class="card">
                     <div class="w-20 py-6 flex justify-center bg-gray-800 rounded-md mb-4">
                         <i data-feather="codesandbox" class="text-gold"></i>
                     </div>
                     <h4 class="text-lg mb-4">Technical Expertise</h4>
-                    <p>Proficient in Python, TensorFlow, and scikit-learn, I excel in building predictive models, data preprocessing, and deploying machine learning solutions.</p>
+                    <p>Proficient in building predictive models, data preprocessing, and deploying Generative AI, computer vision, LLM based solutions.</p>
                 </div>
                 <div class="card">
                     <div class="w-20 py-6 flex justify-center bg-gray-800 rounded-md mb-4">
@@ -136,48 +160,108 @@
             </div>
         </div>
     </section>
-    <section id="portfolio" class="section bg-black">
+    <section id="portfolio" class="section bg-black fade-in">
         <div class="container mx-auto text-center">
             <h1 class="text-gold">Portfolio</h1>
             <p class="mb-8">Here are some of my most significant and favorite projects as a data scientist and machine learning engineer.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card">
-                    <img src="assets/image/project1.jpg" alt="Project 1" class="w-full h-40 object-cover rounded-md mb-4">
-                    <h4 class="text-lg mb-4">Predictive Maintenance System</h4>
-                    <p>Developed a predictive maintenance system using machine learning algorithms to predict equipment failures, reducing downtime and maintenance costs.</p>
+                <div class="card group relative overflow-hidden">
+                    <img src="assets/image/chat-federated.jpeg" alt="AI-Powered Literature Review Assistant" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-lg mb-4 text-gold">AI-Powered Literature Review Assistant</h4>
+                    <p class="text-sm mb-4">Developed a RAG-based AI assistant to streamline the process of writing literature reviews and generating new concepts, potentially accelerating research and innovation across various fields.</p>
+                    <a href="https://github.com/megh21/Chat_Federated" class="text-gold">View code on GitHub</a>
+                    <div class="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 rounded-md overflow-auto">
+                        <h4 class="text-lg mb-4 text-gold">AI-Powered Literature Review Assistant</h4>
+                        <p class="text-sm mb-4">Scientific literature reviews are time-consuming and complex, often slowing down research progress. In this project, I developed a RAG-based AI assistant that streamlines the process of writing literature reviews and generating new concepts, potentially accelerating research and innovation across various fields.</p>
+                        <a href="https://github.com/megh21" class="text-gold">View code on GitHub</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="assets/image/project2.jpg" alt="Project 2" class="w-full h-40 object-cover rounded-md mb-4">
-                    <h4 class="text-lg mb-4">Customer Segmentation Analysis</h4>
-                    <p>Implemented a customer segmentation model using clustering techniques to identify distinct customer groups, enabling targeted marketing strategies.</p>
+                <div class="card group relative overflow-hidden">
+                    <img src="assets/image/ant-colony.png" alt="Intelligent Route Optimization for Urban Mobility" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-lg mb-4 text-gold">Intelligent Route Optimization for Urban Mobility</h4>
+                    <p class="text-sm mb-4">Created a web app that leverages ant colony optimization algorithms to plan optimal routes while incorporating nearby location recommendations.</p>
+                    <a href="https://github.com/megh21/Ant-colony-travel-Planner" class="text-gold">View code on GitHub</a>
+                    <div class="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 rounded-md overflow-auto">
+                        <h4 class="text-lg mb-4 text-gold">Intelligent Route Optimization for Urban Mobility</h4>
+                        <p class="text-sm mb-4">Urban congestion and inefficient route planning pose significant challenges for logistics and everyday commuters. I created a web app that leverages ant colony optimization algorithms to plan optimal routes while incorporating nearby location recommendations. This solution has practical applications in logistics and urban planning, showcasing how AI can enhance operational efficiency and user experience in transportation.</p>
+                        <a href="https://github.com/megh21" class="text-gold">View code on GitHub</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="assets/image/project3.jpg" alt="Project 3" class="w-full h-40 object-cover rounded-md mb-4">
-                    <h4 class="text-lg mb-4">Fraud Detection System</h4>
-                    <p>Developed a real-time fraud detection system using machine learning algorithms to identify and prevent fraudulent transactions, enhancing security.</p>
+                <div class="card group relative overflow-hidden">
+                    <img src="assets/image/fine-tune.png" alt="Customizing Large Language Models for Business Applications" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-lg mb-4 text-gold">Customizing Large Language Models for Business Applications</h4>
+                    <p class="text-sm mb-4">Fine-tuned the Llama2 model using PEFT and QLoRA techniques for specific business use cases such as customer service automation and market trend analysis.</p>
+                    <a href="https://github.com/megh21" class="text-gold">View code on GitHub</a>
+                    <div class="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 rounded-md overflow-auto">
+                        <h4 class="text-lg mb-4 text-gold">Customizing Large Language Models for Business Applications</h4>
+                        <p class="text-sm mb-4">Off-the-shelf language models often fall short in specialized business contexts. In this project, I fine-tuned the Llama2 model using PEFT and QLoRA techniques for specific business use cases such as customer service automation and market trend analysis. This work demonstrates the potential of tailored AI models in enhancing business processes and decision-making.</p>
+                        <a href="https://github.com/megh21" class="text-gold">View code on GitHub</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="assets/image/project4.jpg" alt="Project 4" class="w-full h-40 object-cover rounded-md mb-4">
-                    <h4 class="text-lg mb-4">Sentiment Analysis Tool</h4>
-                    <p>Created a sentiment analysis tool to analyze customer reviews and feedback, providing insights into customer satisfaction and areas for improvement.</p>
+                <div class="card group relative overflow-hidden">
+                    <img src="assets/image/pose-estimation.png" alt="Advanced Pose Estimation for Industrial Automation" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-lg mb-4 text-gold">Advanced Pose Estimation for Industrial Automation</h4>
+                    <p class="text-sm mb-4">Implemented a computer vision system for 6D pose estimation, integrating image processing, segmentation, and 3D reconstruction techniques.</p>
+                    <a href="https://github.com/megh21" class="text-gold">View code on GitHub</a>
+                    <div class="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 rounded-md overflow-auto">
+                        <h4 class="text-lg mb-4 text-gold">Advanced Pose Estimation for Industrial Automation</h4>
+                        <p class="text-sm mb-4">Precise object manipulation is crucial in manufacturing and robotics. I implemented a computer vision system for 6D pose estimation, integrating image processing, segmentation, and 3D reconstruction techniques. This project showcases the application of advanced CV in improving precision and efficiency in industrial processes.</p>
+                        <a href="https://github.com/megh21" class="text-gold">View code on GitHub</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="assets/image/project5.jpg" alt="Project 5" class="w-full h-40 object-cover rounded-md mb-4">
-                    <h4 class="text-lg mb-4">Recommendation System</h4>
-                    <p>Developed a recommendation system for an e-commerce platform, enhancing user experience by providing personalized product recommendations.</p>
+                <div class="card group relative overflow-hidden">
+                    <img src="assets/image/pred-main.png" alt="Predictive Maintenance to Minimize Industrial Downtime" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-lg mb-4 text-gold">Predictive Maintenance to Minimize Industrial Downtime</h4>
+                    <p class="text-sm mb-4">Developed a predictive maintenance system using time series transformers to forecast equipment failures and optimize maintenance schedules.</p>
+                    <a href="https://github.com/megh21/icnap-hack22-Transformer" class="text-gold">View code on GitHub</a>
+                    <div class="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 rounded-md overflow-auto">
+                        <h4 class="text-lg mb-4 text-gold">Predictive Maintenance to Minimize Industrial Downtime</h4>
+                        <p class="text-sm mb-4">Unplanned equipment failures can lead to significant losses in industrial settings. I developed a predictive maintenance system using time series transformers to forecast equipment failures and optimize maintenance schedules. This project illustrates how advanced ML techniques can substantially reduce downtime and maintenance costs in manufacturing environments.</p>
+                        <a href="https://github.com/megh21/icnap-hack22-Transformer" class="text-gold">View code on GitHub</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="assets/image/project6.jpg" alt="Project 6" class="w-full h-40 object-cover rounded-md mb-4">
-                    <h4 class="text-lg mb-4">Healthcare Analytics Platform</h4>
-                    <p>Built a healthcare analytics platform to analyze patient data, providing insights into patient outcomes and improving healthcare services.</p>
+                <div class="card group relative overflow-hidden">
+                    <img src="assets/image/digital-twin.png" alt="Digital Twin for Smarter Urban Traffic Management" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-lg mb-4 text-gold">Digital Twin for Smarter Urban Traffic Management</h4>
+                    <p class="text-sm mb-4">Created a data-driven traffic simulator that acts as a digital twin for urban environments to optimize traffic flow and reduce congestion.</p>
+                    <a href="https://github.com/megh21/urbanmobilitysumo" class="text-gold">View code on GitHub</a>
+                    <div class="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 rounded-md overflow-auto">
+                        <h4 class="text-lg mb-4 text-gold">Digital Twin for Smarter Urban Traffic Management</h4>
+                        <p class="text-sm mb-4">Traffic congestion in urban areas leads to economic losses and decreased quality of life. I created a data-driven traffic simulator that acts as a digital twin for urban environments. This tool empowers city planners and transportation authorities to optimize traffic flow, reduce congestion, and improve urban mobility through data-driven decision making.</p>
+                        <a href="https://github.com/megh21/urbanmobilitysumo" class="text-gold">View code on GitHub</a>
+                    </div>
+                </div>
+                <div class="card group relative overflow-hidden">
+                    <img src="assets/image/forced_labor.png" alt="Combating Forced Labor with AI" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-lg mb-4 text-gold">Combating Forced Labor with AI</h4>
+                    <p class="text-sm mb-4">Engineered an AI system that uses foreign character recognition in text to identify potential cases of forced labor.</p>
+                    <a href="https://github.com/megh21" class="text-gold">View project details</a>
+                    <div class="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 rounded-md overflow-auto">
+                        <h4 class="text-lg mb-4 text-gold">Combating Forced Labor with AI</h4>
+                        <p class="text-sm mb-4">Detecting forced labor in global supply chains is challenging due to its hidden nature. I engineered an AI system that uses foreign character recognition in text to identify potential cases of forced labor. This project demonstrates the application of NLP and ML in addressing critical social issues and ensuring ethical business practices.</p>
+                        <a href="https://github.com/megh21" class="text-gold">View project details</a>
+                    </div>
+                </div>
+                <div class="card group relative overflow-hidden">
+                    <img src="assets/image/dashboard.png" alt="Data-Driven Solutions for Minority Housing" class="w-full h-40 object-cover rounded-md mb-4">
+                    <h4 class="text-lg mb-4 text-gold">Data-Driven Solutions for Minority Housing</h4>
+                    <p class="text-sm mb-4">Designed and implemented a comprehensive data dashboard for an NGO focused on minority housing solutions.</p>
+                    <a href="https://github.com/megh21" class="text-gold">View project details</a>
+                    <div class="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 rounded-md overflow-auto">
+                        <h4 class="text-lg mb-4 text-gold">Data-Driven Solutions for Minority Housing</h4>
+                        <p class="text-sm mb-4">Access to affordable housing is a persistent challenge for minority communities. I designed and implemented a comprehensive data dashboard for an NGO focused on minority housing solutions. This project showcases how data visualization and analytics can drive informed decision-making in the non-profit sector and address complex social housing challenges.</p>
+                        <a href="https://github.com/megh21" class="text-gold">View project details</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section id="hackathons" class="section bg-black">
+    <section id="hackathons" class="section bg-black fade-in">
         <div class="container mx-auto text-center">
             <h1 class="text-gold">Hackathon Awards</h1>
             <p class="mb-8">Here are some of the hackathons I have participated in and won awards for my innovative solutions.</p>
+            <br>
+            <br>
             <div class="space-y-8 md:space-y-16">
                 <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
                     <div class="w-20 py-6 flex justify-center bg-gray-800 rounded-md mb-4 md:mb-0">
@@ -185,7 +269,11 @@
                     </div>
                     <div class="text-left">
                         <h4 class="text-lg mb-2 text-gold">Best Aachen Infineon Sensathon</h4>
-                        <p class="text-gray-300">Developed a tool to detect the pests' location in indoor farming using AI-based stereo acoustic localization. <strong class="text-gold">1st Prize</strong></p>
+                        <p class="text-gray-300">Developed a tool to detect the pests' location in indoor farming using AI-based stereo acoustic localization. <strong class="text-occ">1st Prize</strong></p>
+                        <a href="https://medium.com/@meghrajvbagde/whispersense-acoustic-pest-positioning-for-smart-indoor-farming-2b57fc54a0bd" class="text-gold flex items-center mt-2">
+                            <i data-feather="book-open" class="mr-2"></i>
+                            Read publication on Medium
+                        </a>
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
@@ -194,7 +282,7 @@
                     </div>
                     <div class="text-left">
                         <h4 class="text-lg mb-2 text-gold">Fraunhofer ICNAP Hackathon</h4>
-                        <p class="text-gray-300">Created a forecasting tool for predictive analytics in manufacturing. <strong class="text-gold">1st Prize</strong></p>
+                        <p class="text-gray-300">Created a forecasting tool for predictive analytics in manufacturing. <strong class="text-occ">1st Prize</strong></p>
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
@@ -203,7 +291,7 @@
                     </div>
                     <div class="text-left">
                         <h4 class="text-lg mb-2 text-gold">DLR Copernicus Hackathon Coding the Copernicus</h4>
-                        <p class="text-gray-300">Developed an AI-based product for landscape conversion using satellite data. <strong class="text-gold">Community Prize</strong></p>
+                        <p class="text-gray-300">Developed an AI-based product for landscape conversion using satellite data. <strong class="text-occ">Community Prize</strong></p>
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
@@ -212,7 +300,7 @@
                     </div>
                     <div class="text-left">
                         <h4 class="text-lg mb-2 text-gold">ESE Hackathon Save the Cat</h4>
-                        <p class="text-gray-300">Developed an IoT-based solution for railway transport systems to enhance safety. <strong class="text-gold">2nd Prize</strong></p>
+                        <p class="text-gray-300">Developed an IoT-based solution for railway transport systems to enhance safety. <strong class="text-occ">2nd Prize</strong></p>
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
@@ -221,18 +309,17 @@
                     </div>
                     <div class="text-left">
                         <h4 class="text-lg mb-2 text-gold">Mobility Hackathon Stadlab Eindhoven</h4>
-                        <p class="text-gray-300">Developed a digital twin tool to empower legislative bodies to make informed decisions on traffic in Eindhoven city. <strong class="text-gold">3rd Prize</strong></p>
+                        <p class="text-gray-300">Developed a digital twin tool to empower legislative bodies to make informed decisions on traffic in Eindhoven city. <strong class="text-occ">3rd Prize</strong></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-    <section class="py-10 md:py-16">
-        <div class="container max-w-screen-xl mx-auto px-4">
-            <h1 class="font-medium text-gray-700 text-3xl md:text-4xl mb-5">Experience</h1>
-            <p class="font-normal text-gray-500 text-xs md:text-base mb-20">Below is a summary of my work experience</p>
+    <section id="experience" class="section bg-black fade-in">
+        <img src="assets/image/home5.png" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-50">
+        <div class="container mx-auto text-center relative z-10">
+            <h1 class="text-gold">Experience</h1>
+            <p class="mb-8">Below is a summary of my work experience</p>
             <div class="flex flex-col lg:flex-row justify-between">
                 <div class="space-y-8 md:space-y-16 mb-16 md:mb-0">
                     <h6 class="font-medium text-gray-400 text-base uppercase">Company</h6>
@@ -255,17 +342,16 @@
             </div>
         </div>
     </section>
-
-    <footer class="py-10 md:py-16">
+    <footer class="py-10 md:py-16 fade-in">
         <div class="container mx-auto text-center">
             <div class="flex items-center justify-center space-x-8">
-                <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-800 transition ease-in-out duration-500">
+                <a href="https://x.com/freakbasist" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-800 transition ease-in-out duration-500">
                     <i data-feather="twitter" class="text-gray-500 hover:text-gray-300 transition ease-in-out duration-500"></i>
                 </a>
-                <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-800 transition ease-in-out duration-500">
+                <a href="mailto:meghraj.bagde@rwth-aachen.de" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-800 transition ease-in-out duration-500">
                     <i data-feather="at-sign" class="text-gray-500 hover:text-gray-300 transition ease-in-out duration-500"></i>
                 </a>
-                <a href="#" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-800 transition ease-in-out duration-500">
+                <a href="https://linkedin.com/in/meghraj-bagde" class="w-16 h-16 flex items-center justify-center rounded-full hover:bg-gray-800 transition ease-in-out duration-500">
                     <i data-feather="linkedin" class="text-gray-500 hover:text-gray-300 transition ease-in-out duration-500"></i>
                 </a>
             </div>
