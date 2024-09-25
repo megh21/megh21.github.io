@@ -1,47 +1,6 @@
 # Site settings
 title: Meghraj Bagde
-description: Data Scientist Portfolio
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://megh21.github.io" # the base hostname & protocol for your site
-
-# Author settings
-author:
-  name: Meghraj Bagde
-  email: meghraj.bagde@rwth-aachen.de
-
-# Theme settings
+logo: /assets/image/myphoto.png
+#description: text below image
+show_downloads: False
 theme: jekyll-theme-minimal
-logo: /assets/images/my-photo.png
-# Social links
-social_links:
-  - name: LinkedIn
-    url: https://www.linkedin.com/in/meghraj-bagde
-  - name: GitHub
-    url: https://github.com/megh21
-
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-
-# Markdown settings
-markdown: kramdown
-highlighter: rouge
-
-# Exclude from processing
-exclude:
-  - README.md
-  - Gemfile
-  - Gemfile.lock
-
-# Defaults
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "Meghraj Bagde"
-
-# Build settings
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
