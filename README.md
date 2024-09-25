@@ -7,7 +7,7 @@
 
 ## About Me
 
-As a data scientist and machine learning engineer, I blend analytical prowess with innovative problem-solving to deliver impactful solutions. My journey in the realm of data science is marked by a commitment to continuous learning and a passion for pushing the boundaries of what's possible with AI and machine learning.
+As a data scientist, I blend analytical expertise with innovative problem-solving to deliver impactful solutions. My journey in the realm of data science is marked by a commitment to continuous learning and a passion for pushing the boundaries of what's possible with AI and machine learning.
 
 With a strong foundation in predictive analytics, AI-based systems, and IoT solutions, I've honed my skills across various domains. My approach combines technical expertise with a keen understanding of business needs, ensuring that each project not only meets but exceeds expectations.
 
@@ -56,6 +56,7 @@ These experiences showcase my ability to innovate under pressure and collaborate
 | Symmedia GmbH, Bielefeld, DE | Machine Learning Engineer Intern | 07/2023 - 06/2024 |
 | ZF Group, Friedrichshafen, DE | Data Science Intern | 10/2022 - 03/2023 |
 | RWTH Aachen, Aachen, DE | Student Researcher | 04/2022 - 06/2023 |
+| ZF Steering Gear india Ltd | Data Analyst | 06/2018 - 06/2019 |
 
 Each role has been a stepping stone in my career, allowing me to apply my skills to real-world challenges and grow both professionally and personally.
 
@@ -63,4 +64,4 @@ Each role has been a stepping stone in my career, allowing me to apply my skills
 
 I'm always eager to take on new challenges and collaborate on innovative projects. If you're looking for a data scientist who combines technical expertise with creative problem-solving, let's connect and explore how we can create something amazing together.
 
-[Contact Me](#) | [LinkedIn](#) | [GitHub](#)
+[Contact Me](#mailto:meghraj.bagde@rwth-aachen.de) | [LinkedIn](#https://linkedin.com/in/meghraj-bagde) | [GitHub](#https://github.com/megh21)
